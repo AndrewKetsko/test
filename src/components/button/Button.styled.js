@@ -1,0 +1,16 @@
+import styled from "@emotion/styled";
+
+export const StyledButton = styled.button`
+  ${(props) => props.width ?? "width: 100%;"}
+  padding: 12px 50px;
+  background-color: #3470ff;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-family: Manrope;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.43;
+  letter-spacing: 0em;
+  text-align: center;
+`;
