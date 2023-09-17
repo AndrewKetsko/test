@@ -5,25 +5,51 @@ import { useState } from "react";
 import { Modal } from "../modal/Modal";
 import { Container, Image, Icon, Header, SemiTransparent } from "./Card.styled";
 
-export const Card = ({ item }) => {
+export const Card = ({ item, favorite, handleFavorite }) => {
   const [isOpen, setIsOpen] = useState(false);
   const openModal = () => setIsOpen(true);
-  const closeModal = () => setIsOpen(false);
+  const closeModal = (e) => {
+    // console.log(e.target.className.includes('overlay'));
+    setIsOpen(false);
+  };
+
+  const {
+    img,
+    photoLink,
+    make,
+    model,
+    year,
+    rentalPrice,
+    address,
+    rentalCompany,
+    type,
+    id,
+    functionalities,
+  } = item;
 
   return (
     <Container>
-      <Icon alt="heart" src={ActiveHeart || Heart} />
-      <Image src={item.img || item.photoLink}></Image>
+      <Icon
+        alt="heart"
+        src={favorite?.includes(id) ? ActiveHeart : Heart}
+        onClick={() => handleFavorite(id)}
+      />
+      <Image src={img || photoLink}></Image>
+
       <Header>
-        {item.make} <span style={{ color: "#3470FF" }}>{item.model}</span>,{" "}
-        {item.year}
+        {make}{" "}
+        {(make + model + year).length < 25 && (
+          <span style={{ color: "#3470FF" }}>{model}</span>
+        )}
+        , {year}
         <span style={{ display: "inline-block", marginLeft: "auto" }}>
-          {item.rentalPrice}
+          {rentalPrice}
         </span>
       </Header>
+
       <SemiTransparent>
-        {item.address.split(", ").slice(1).join(" | ")} | {item.rentalCompany} |{" "}
-        {item.type} | {item.id} | {item.functionalities[0]}
+        {address.split(", ").slice(1).join(" | ")} | {rentalCompany} | {type} |{" "}
+        {functionalities[0]}
       </SemiTransparent>
       <Button type={"button"} text={"Learn more"} onClick={openModal} width />
       {isOpen && <Modal onClose={closeModal} item={item} />}

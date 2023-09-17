@@ -5,6 +5,7 @@ export const rentalApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: "https://65057c21ef808d3c66f016b7.mockapi.io",
   }),
+  keepUnusedDataFor:10000,
 
   endpoints: (builder) => ({
     getCars: builder.query({

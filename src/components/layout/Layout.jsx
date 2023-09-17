@@ -1,28 +1,42 @@
 import { Suspense } from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useLocation } from "react-router-dom";
+import { Container, Link, LinkBox, Navigation } from "./Layout.styled";
 
 const Layout = () => {
+  const { pathname } = useLocation();
   return (
-    <div>
-      <nav>
+    <Container>
+      <Navigation>
         <ul>
-          <li>
-            <NavLink to={"/"}>Home</NavLink>
-          </li>
-          <li>
-            <NavLink to={"/catalog"}>Catalog</NavLink>
-          </li>
-          <li>
-            <NavLink to={"/favorites"}>Favorites</NavLink>
-          </li>
+          <LinkBox>
+            <Link to={"/"} className={pathname === "/" ? "active" : ""}>
+              Home
+            </Link>
+          </LinkBox>
+          <LinkBox>
+            <Link
+              to={"/catalog"}
+              className={pathname === "/catalog" ? "active" : ""}
+            >
+              Catalog
+            </Link>
+          </LinkBox>
+          <LinkBox>
+            <Link
+              to={"/favorites"}
+              className={pathname === "/favorites" ? "active" : ""}
+            >
+              Favorites
+            </Link>
+          </LinkBox>
         </ul>
-      </nav>
-      <main>
+      </Navigation>
+      <main style={{ marginLeft: "130px" }}>
         <Suspense fallback={<div>Loading</div>}>
           <Outlet />
         </Suspense>
       </main>
-    </div>
+    </Container>
   );
 };
 

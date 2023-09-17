@@ -89,6 +89,11 @@ export const TextBG = styled.p`
   padding: 7px 14px;
   background-color: #f9f9f9;
   border-radius: 35px;
-  margin-right:8px;
-  margin-top:8px;
+  margin-right: 8px;
+  margin-top: 8px;
+`;
+
+export const SpanBG = styled.span`
+  color: #3470ff;
+  font-weight: 600;
 `;

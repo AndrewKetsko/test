@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 export const StyledButton = styled.button`
   ${(props) => props.width ?? "width: 100%;"}
-  padding: 12px 50px;
+  padding: 14px 50px;
   background-color: #3470ff;
   color: white;
   border: none;
@@ -13,4 +13,10 @@ export const StyledButton = styled.button`
   line-height: 1.43;
   letter-spacing: 0em;
   text-align: center;
+
+  :hover,
+  :focus {
+    background-color: #0b44cd;
+    cursor:pointer;
+  }
 `;

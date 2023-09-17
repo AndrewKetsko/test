@@ -12,6 +12,7 @@ import {
   Text,
   SemiHeader,
   TextBG,
+  SpanBG,
 } from "./Modal.styled";
 
 export const Modal = ({ onClose, item }) => {
@@ -25,11 +26,8 @@ export const Modal = ({ onClose, item }) => {
     return () => window.removeEventListener("keydown", keyDown);
   }, [onClose]);
 
-  const mil = item.mileage.toString().split("");
-  mil.splice(-3, 0, ",");
-
   return createPortal(
-    <Overlay onClick={onClose}>
+    <Overlay onClick={onClose} className="overlay">
       <Container>
         <CloseIcon alt="X" src={X} onClick={onClose} />
         <Image src={item.img || item.photoLink} />
@@ -52,23 +50,23 @@ export const Modal = ({ onClose, item }) => {
         <SemiTransparent>{item.functionalities.join(" | ")}</SemiTransparent>
         <SemiHeader>Rental Conditions: </SemiHeader>
         <div style={{ marginBottom: "24px" }}>
-          <TextBG>
-            Minimum age :{" "}
-            <span style={{ color: "#3470FF", fontWeight: 600 }}>25</span>
-          </TextBG>
-          <TextBG>Valid driver’s license</TextBG>
-          <TextBG>Security deposite required</TextBG>
+          {item.rentalConditions.split("\n").map((cond) =>
+            !cond.includes(":") ? (
+              <TextBG key={cond}>{cond}</TextBG>
+            ) : (
+              <TextBG key={cond}>
+                {cond.split(":")[0]} : <SpanBG>{cond.split(":")[1]}</SpanBG>
+              </TextBG>
+            )
+          )}
           <TextBG>
             Mileage :{" "}
-            <span style={{ color: "#3470FF", fontWeight: 600 }}>
-              {mil.join("")}
-            </span>
+            <SpanBG>
+              {item.mileage.toString().split("").toSpliced(-3, 0, ",").join("")}
+            </SpanBG>
           </TextBG>
           <TextBG>
-            Price :{" "}
-            <span style={{ color: "#3470FF", fontWeight: 600 }}>
-              {item.rentalPrice.slice(1)}$
-            </span>
+            Price : <SpanBG>{item.rentalPrice.slice(1)}$</SpanBG>
           </TextBG>
         </div>
         <Button type={"button"} text={"Rent a car"} />
