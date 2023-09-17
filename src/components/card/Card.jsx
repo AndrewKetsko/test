@@ -9,7 +9,16 @@ export const Card = ({ item, favorite, handleFavorite }) => {
   const [isOpen, setIsOpen] = useState(false);
   const openModal = () => setIsOpen(true);
   const closeModal = (e) => {
-    // console.log(e.target.className.includes('overlay'));
+    if (
+      e?.target?.alt !== "X" &&
+      (e?.target?.className?.includes("card") ||
+        e?.target?.parentNode?.className?.includes("card") ||
+        e?.target?.parentNode?.parentNode?.className?.includes("card") ||
+        e?.target?.parentNode?.parentNode?.parentNode?.className?.includes(
+          "card"
+        ))
+    )
+      return;
     setIsOpen(false);
   };
 

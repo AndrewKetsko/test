@@ -27,8 +27,8 @@ export const Modal = ({ onClose, item }) => {
   }, [onClose]);
 
   return createPortal(
-    <Overlay onClick={onClose} className="overlay">
-      <Container>
+    <Overlay onClick={onClose}>
+      <Container className="card">
         <CloseIcon alt="X" src={X} onClick={onClose} />
         <Image src={item.img || item.photoLink} />
         <Header>
@@ -69,7 +69,11 @@ export const Modal = ({ onClose, item }) => {
             Price : <SpanBG>{item.rentalPrice.slice(1)}$</SpanBG>
           </TextBG>
         </div>
-        <Button type={"button"} text={"Rent a car"} />
+        <Button
+          type={"button"}
+          text={"Rent a car"}
+          onClick={() => window.open("tel:+380730000000", "_self")}
+        />
       </Container>
     </Overlay>,
     document.querySelector("#modal")

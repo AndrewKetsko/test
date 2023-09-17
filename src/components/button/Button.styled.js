@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 export const StyledButton = styled.button`
-  ${(props) => props.width ?? "width: 100%;"}
+  ${(props) => props.width ? "width: 100%;":''}
   padding: 14px 50px;
   background-color: #3470ff;
   color: white;
