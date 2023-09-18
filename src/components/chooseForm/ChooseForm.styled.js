@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 export const Container = styled.form`
-  width: 1200px;
+  width: 100vw;
   display: flex;
   flex-wrap: wrap;
   gap: 18px;
