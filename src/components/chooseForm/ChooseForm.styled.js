@@ -38,6 +38,7 @@ export const SelectText = styled.select`
   height: 48px;
   margin: 0;
   appearance: none;
+  outline:none;
 `;
 
 export const SelectImg = styled.img`
@@ -91,6 +92,10 @@ export const InputText = styled.input`
   :first-of-type {
     border-top-left-radius: 14px;
     border-bottom-left-radius: 14px;
+    
+    :before {
+      content:'From:';
+    }
     :after {
       content: "";
       border-right: solid black 1px;
@@ -100,8 +105,9 @@ export const InputText = styled.input`
   :last-of-type {
     border-top-right-radius: 14px;
     border-bottom-right-radius: 14px;
-    ::before {
-      content: "";
+    
+    :before {
+      content: "To:";
       border-left: 1px solid black;
     }
   }

@@ -27,6 +27,10 @@ export const CloseIcon = styled.img`
   right: 16px;
   width: 24px;
   height: 24px;
+  :hover, :focus{
+    transform: scale(1.2);
+    cursor:pointer;
+  }
 `;
 
 export const Image = styled.div`

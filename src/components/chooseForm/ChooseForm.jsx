@@ -9,7 +9,7 @@ import {
   InputText,
   SelectImg,
 } from "./ChooseForm.styled";
-import Arrow from "../../svg_s/arrow.svg";
+import Arrow from "../../pics/arrow.svg";
 
 export const ChooseForm = ({ filter, setFilter }) => {
   
@@ -96,7 +96,7 @@ export const ChooseForm = ({ filter, setFilter }) => {
 
       <Button type={"submit"} text={"Search"} />
       <Button type={"button"} text={"Reset"} onClick={handleReset} />
-      
+
     </Container>
   );
 };

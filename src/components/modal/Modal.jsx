@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import X from "../../svg_s/x.svg";
+import X from "../../pics/x.svg";
 import { Button } from "../button/Button";
 import { createPortal } from "react-dom";
 import {
@@ -87,7 +87,7 @@ export const Modal = ({ onClose, item }) => {
           text={"Rent a car"}
           onClick={() => window.open("tel:+380730000000", "_self")}
         />
-        
+
       </Container>
     </Overlay>,
     document.querySelector("#modal")

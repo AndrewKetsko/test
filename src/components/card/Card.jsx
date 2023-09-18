@@ -1,5 +1,5 @@
-import Heart from "../../svg_s/heart.svg";
-import ActiveHeart from "../../svg_s/active.svg";
+import Heart from "../../pics/heart.svg";
+import ActiveHeart from "../../pics/active.svg";
 import { Button } from "../button/Button";
 import { useState } from "react";
 import { Modal } from "../modal/Modal";

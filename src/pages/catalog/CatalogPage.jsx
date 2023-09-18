@@ -3,9 +3,8 @@ import { Catalog } from "../../components/catalog/Catalog";
 import { ChooseForm } from "../../components/chooseForm/ChooseForm";
 
 const CatalogPage = () => {
-  
-  const [filter, setFilter] = useState({})
-  
+  const [filter, setFilter] = useState({});
+
   return (
     <>
       <ChooseForm filter={filter} setFilter={setFilter} />
