@@ -8,6 +8,7 @@ import {
   OptionText,
   InputText,
   SelectImg,
+  CustomLabel,
 } from "./ChooseForm.styled";
 import Arrow from "../../pics/arrow.svg";
 
@@ -48,7 +49,6 @@ export const ChooseForm = ({ filter, setFilter }) => {
 
   return (
     <Container onSubmit={handleSubmit}>
-
       <label style={{ position: "relative" }}>
         <LabelText>Car brand</LabelText>
         <SelectImg alt={"arrow"} src={Arrow} />
@@ -65,10 +65,7 @@ export const ChooseForm = ({ filter, setFilter }) => {
       <label style={{ position: "relative" }}>
         <LabelText>Price per hour</LabelText>
         <SelectImg alt={"arrow"} src={Arrow} />
-        <SelectText
-          name="price"
-          onChange={(e) => setPrice(e.target.value)}
-        >
+        <SelectText name="price" onChange={(e) => setPrice(e.target.value)}>
           <OptionText value={""}>max price</OptionText>
           {priceRange?.map((price) => (
             <OptionText key={price} value={price}>
@@ -78,25 +75,28 @@ export const ChooseForm = ({ filter, setFilter }) => {
         </SelectText>
       </label>
 
-      <label>
+      <CustomLabel>
         <LabelText>Car mileage / km</LabelText>
         <InputText
           name="from"
           type="number"
+          min="0"
+          max="999999"
           value={from}
           onChange={(e) => setFrom(e.target.value)}
         />
         <InputText
           name="to"
           type="number"
+          min="0"
+          max="999999"
           value={to}
           onChange={(e) => setTo(e.target.value)}
         />
-      </label>
+      </CustomLabel>
 
       <Button type={"submit"} text={"Search"} />
       <Button type={"button"} text={"Reset"} onClick={handleReset} />
-
     </Container>
   );
 };

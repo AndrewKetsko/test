@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 export const Container = styled.form`
-  width: 100vw-140px;
+  width: 100vw;
   display: flex;
   flex-wrap: wrap;
   gap: 18px;
@@ -19,6 +19,9 @@ export const LabelText = styled.p`
   text-align: left;
   color: rgba(138, 138, 137, 1);
   margin-bottom: 8px;
+  // :before {
+  //   content: "To:";
+  // }
 `;
 
 export const SelectText = styled.select`
@@ -38,15 +41,14 @@ export const SelectText = styled.select`
   height: 48px;
   margin: 0;
   appearance: none;
-  outline:none;
+  outline: none;
 `;
 
 export const SelectImg = styled.img`
-position:absolute;
-right:13px;
-bottom:13px;
+  position: absolute;
+  right: 13px;
+  bottom: 13px;
 `;
-
 
 export const SelectWrapper = styled.select`
   // font-family: Manrope;
@@ -83,28 +85,45 @@ export const InputText = styled.input`
   letter-spacing: 0em;
   text-align: left;
   color: #121417;
-  padding: 14px 18px;
+  // padding: 14px 18px;
   border: none;
   background-color: rgba(247, 247, 251, 1);
-  width: 160px;
+  // width: 160px;
   outline: none;
 
   :first-of-type {
     border-top-left-radius: 14px;
     border-bottom-left-radius: 14px;
     border-right: 1px solid #8a8a89;
-
-    :before {
-      content: "From:";
-    }
+    padding: 14px 18px 14px 75px;
+    width: 85px;
   }
 
   :last-of-type {
     border-top-right-radius: 14px;
     border-bottom-right-radius: 14px;
+    padding: 14px 18px 14px 50px;
+    width: 110px;
+  }
+`;
 
-    :before {
-      content: "To:";
-    }
+export const CustomLabel = styled.label`
+  font-family: Manrope;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #121417;
+
+  :before {
+    content: "From:";
+    position: absolute;
+    transform: translate(20px, 39px);
+  }
+  :after {
+    content: "To:";
+    position: absolute;
+    transform: translate(-160px, 14px);
   }
 `;

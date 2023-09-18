@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { NavLink } from "react-router-dom";
 
 export const Container = styled.div`
-  display: flex;
+  // display: flex;
   position: relative;
   // padding-right:10px;
   //   flex-wrap: wrap;
@@ -15,8 +15,9 @@ export const Navigation = styled.nav`
   // display: flex;
   padding: 10px;
   position: fixed;
+  z-index:100;
   background-color: rgba(247, 247, 251, 1);
-  height: 100vh;
+  // height: 100vh;
   top: 0;
   left: 0;
   //   flex-wrap: wrap;
@@ -46,5 +47,5 @@ export const Link = styled(NavLink)`
 `;
 
 export const LinkBox = styled.li`
-  margin-top: 20px;
+  margin-right: 20px;
 `;

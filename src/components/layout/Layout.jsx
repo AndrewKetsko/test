@@ -8,7 +8,7 @@ const Layout = () => {
   return (
     <Container>
       <Navigation>
-        <ul>
+        <ul style={{display:'flex', width:'100vw'}}>
           <LinkBox>
             <Link to={"/"} className={pathname === "/" ? "active" : ""}>
               Home
@@ -35,7 +35,7 @@ const Layout = () => {
         </ul>
       </Navigation>
 
-      <main style={{ marginLeft: "140px" }}>
+      <main style={{marginTop:'100px'}}>
         <Suspense fallback={<div>Loading</div>}>
           <Outlet />
         </Suspense>
