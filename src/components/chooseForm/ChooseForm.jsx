@@ -19,7 +19,7 @@ export const ChooseForm = ({ filter, setFilter }) => {
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
 
-  const makes = [...new Set(data?.map((item) => item.make))];
+  const makes = [...new Set(data?.map((item) => item.make))].sort();
   const priceRange = [
     ...new Set(
       data?.map((item) => +item.rentalPrice.slice(1)).sort((a, b) => a - b)

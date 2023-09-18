@@ -18,15 +18,16 @@ export const Catalog = ({ filter }) => {
   }, [pathname]);
 
   const { brand = "", price = "", from = "", to = "" } = filter;
-
+  
   const filteredData = data?.filter(({ make, rentalPrice, mileage }) => {
     if (
-      (brand !== "" && brand !== make) ||
-      Number(price === "" ? Infinity : price) < Number(rentalPrice.slice(1)) ||
-      (from >= mileage && to <= mileage)
+      (brand === "" || brand === make) &&
+      Number(price === "" ? Infinity : price) > Number(rentalPrice.slice(1)) &&
+      Number(from === "" ? 0 : from) <= mileage &&
+      Number(to === "" ? Infinity : to) >= mileage
     )
-      return false;
-    return true;
+      return true;
+    return false;
   });
 
   const favoriteData = pathname.includes("catalog")
