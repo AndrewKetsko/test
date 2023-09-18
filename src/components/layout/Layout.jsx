@@ -35,7 +35,7 @@ const Layout = () => {
         </ul>
       </Navigation>
 
-      <main style={{ marginLeft: "130px" }}>
+      <main style={{ marginLeft: "140px" }}>
         <Suspense fallback={<div>Loading</div>}>
           <Outlet />
         </Suspense>

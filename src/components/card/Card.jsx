@@ -13,12 +13,7 @@ export const Card = ({ item, favorite, handleFavorite }) => {
   const closeModal = (e) => {
     if (
       e?.target?.alt !== "X" &&
-      (e?.target?.className?.includes("card") ||
-        e?.target?.parentNode?.className?.includes("card") ||
-        e?.target?.parentNode?.parentNode?.className?.includes("card") ||
-        e?.target?.parentNode?.parentNode?.parentNode?.className?.includes(
-          "card"
-        ))
+      e?.target?.className !== e?.currentTarget?.className
     )
       return;
     setIsOpen(false);
@@ -40,7 +35,6 @@ export const Card = ({ item, favorite, handleFavorite }) => {
 
   return (
     <Container>
-
       <Icon
         alt="heart"
         src={favorite?.includes(id) ? ActiveHeart : Heart}
@@ -50,9 +44,9 @@ export const Card = ({ item, favorite, handleFavorite }) => {
       <Image src={img || photoLink}></Image>
 
       <Header>
-        {make} 
+        {make}
         {(make + model + year).length < 25 && (
-          <span style={{ color: "#3470FF", marginLeft:'5px' }}>{model}</span>
+          <span style={{ color: "#3470FF", marginLeft: "5px" }}>{model}</span>
         )}
         , {year}
         <span style={{ display: "inline-block", marginLeft: "auto" }}>
@@ -65,9 +59,13 @@ export const Card = ({ item, favorite, handleFavorite }) => {
         {functionalities[0]}
       </SemiTransparent>
 
-      <Button type={"button"} text={"Learn more"} onClick={openModal} longButton />
+      <Button
+        type={"button"}
+        text={"Learn more"}
+        onClick={openModal}
+        longButton
+      />
       {isOpen && <Modal onClose={closeModal} item={item} />}
-
     </Container>
   );
 };

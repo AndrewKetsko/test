@@ -13,8 +13,12 @@ export const Container = styled.div`
 `;
 export const Navigation = styled.nav`
   // display: flex;
-  padding-right: 10px;
+  padding: 10px;
   position: fixed;
+  background-color: rgba(247, 247, 251, 1);
+  height: 100vh;
+  top: 0;
+  left: 0;
   //   flex-wrap: wrap;
   //   gap: 18px;
   //   justify-content: center;

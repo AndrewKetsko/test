@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 export const Container = styled.form`
-  // width: auto 1200px;
+  width: 1200px;
   display: flex;
   flex-wrap: wrap;
   gap: 18px;
@@ -92,23 +92,19 @@ export const InputText = styled.input`
   :first-of-type {
     border-top-left-radius: 14px;
     border-bottom-left-radius: 14px;
-    
+    border-right: 1px solid #8a8a89;
+
     :before {
-      content:'From:';
-    }
-    :after {
-      content: "";
-      border-right: solid black 1px;
+      content: "From:";
     }
   }
 
   :last-of-type {
     border-top-right-radius: 14px;
     border-bottom-right-radius: 14px;
-    
+
     :before {
       content: "To:";
-      border-left: 1px solid black;
     }
   }
 `;
