@@ -5,6 +5,7 @@ import { Container, Button } from "./Catalog.styled";
 import { useEffect, useState } from "react";
 
 export const Catalog = ({ filter }) => {
+  
   const { data } = useGetCarsQuery();
   const { pathname } = useLocation();
   const [favorite, setFavorite] = useState(
@@ -31,6 +32,9 @@ export const Catalog = ({ filter }) => {
   const favoriteData = pathname.includes("catalog")
     ? filteredData
     : filteredData?.filter((item) => favorite.includes(item.id));
+    
+  const pages = Math.ceil(favoriteData?.length / 8);
+  const renderData = favoriteData?.slice(0, currentPage * 8);
 
   const handleFavorite = (id) => {
     if (favorite.includes(id)) {
@@ -45,9 +49,6 @@ export const Catalog = ({ filter }) => {
     }
   };
 
-  const pages = Math.ceil(favoriteData?.length / 8);
-  const renderData = favoriteData?.slice(0, currentPage * 8);
-
   const handleMore = (e) => {
     setCurrentPage((prev) => prev + 1);
   };
@@ -55,6 +56,7 @@ export const Catalog = ({ filter }) => {
   return (
     <>
       <Container>
+
         {renderData?.map((item) => (
           <Card
             key={item.id}
@@ -63,12 +65,17 @@ export const Catalog = ({ filter }) => {
             handleFavorite={handleFavorite}
           />
         ))}
+
       </Container>
+
       {pages > currentPage && (
-        <Button type="button" onClick={handleMore}>
-          Load more
-        </Button>
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <Button type="button" onClick={handleMore}>
+            Load more
+          </Button>
+        </div>
       )}
+      
     </>
   );
 };

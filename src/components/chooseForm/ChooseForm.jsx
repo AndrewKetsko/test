@@ -7,9 +7,12 @@ import {
   SelectText,
   OptionText,
   InputText,
+  SelectImg,
 } from "./ChooseForm.styled";
+import Arrow from "../../svg_s/arrow.svg";
 
 export const ChooseForm = ({ filter, setFilter }) => {
+  
   const { data } = useGetCarsQuery();
   const [model, setModel] = useState("");
   const [price, setPrice] = useState("");
@@ -45,8 +48,10 @@ export const ChooseForm = ({ filter, setFilter }) => {
 
   return (
     <Container onSubmit={handleSubmit}>
-      <label>
+
+      <label style={{ position: "relative" }}>
         <LabelText>Car brand</LabelText>
+        <SelectImg alt={"arrow"} src={Arrow} />
         <SelectText name="cars" onChange={(e) => setModel(e.target.value)}>
           <OptionText value={""}>Choose a brand</OptionText>
           {makes?.map((make) => (
@@ -57,9 +62,13 @@ export const ChooseForm = ({ filter, setFilter }) => {
         </SelectText>
       </label>
 
-      <label>
+      <label style={{ position: "relative" }}>
         <LabelText>Price per hour</LabelText>
-        <SelectText name="price" onChange={(e) => setPrice(e.target.value)}>
+        <SelectImg alt={"arrow"} src={Arrow} />
+        <SelectText
+          name="price"
+          onChange={(e) => setPrice(e.target.value)}
+        >
           <OptionText value={""}>max price</OptionText>
           {priceRange?.map((price) => (
             <OptionText key={price} value={price}>
@@ -87,6 +96,7 @@ export const ChooseForm = ({ filter, setFilter }) => {
 
       <Button type={"submit"} text={"Search"} />
       <Button type={"button"} text={"Reset"} onClick={handleReset} />
+      
     </Container>
   );
 };

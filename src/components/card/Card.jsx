@@ -7,7 +7,9 @@ import { Container, Image, Icon, Header, SemiTransparent } from "./Card.styled";
 
 export const Card = ({ item, favorite, handleFavorite }) => {
   const [isOpen, setIsOpen] = useState(false);
+
   const openModal = () => setIsOpen(true);
+
   const closeModal = (e) => {
     if (
       e?.target?.alt !== "X" &&
@@ -38,17 +40,19 @@ export const Card = ({ item, favorite, handleFavorite }) => {
 
   return (
     <Container>
+
       <Icon
         alt="heart"
         src={favorite?.includes(id) ? ActiveHeart : Heart}
         onClick={() => handleFavorite(id)}
       />
+
       <Image src={img || photoLink}></Image>
 
       <Header>
-        {make}{" "}
+        {make} 
         {(make + model + year).length < 25 && (
-          <span style={{ color: "#3470FF" }}>{model}</span>
+          <span style={{ color: "#3470FF", marginLeft:'5px' }}>{model}</span>
         )}
         , {year}
         <span style={{ display: "inline-block", marginLeft: "auto" }}>
@@ -60,8 +64,10 @@ export const Card = ({ item, favorite, handleFavorite }) => {
         {address.split(", ").slice(1).join(" | ")} | {rentalCompany} | {type} |{" "}
         {functionalities[0]}
       </SemiTransparent>
-      <Button type={"button"} text={"Learn more"} onClick={openModal} width />
+
+      <Button type={"button"} text={"Learn more"} onClick={openModal} longButton />
       {isOpen && <Modal onClose={closeModal} item={item} />}
+
     </Container>
   );
 };

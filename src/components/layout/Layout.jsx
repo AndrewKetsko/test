@@ -1,9 +1,10 @@
 import { Suspense } from "react";
-import { NavLink, Outlet, useLocation } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import { Container, Link, LinkBox, Navigation } from "./Layout.styled";
 
 const Layout = () => {
   const { pathname } = useLocation();
+
   return (
     <Container>
       <Navigation>
@@ -13,6 +14,7 @@ const Layout = () => {
               Home
             </Link>
           </LinkBox>
+
           <LinkBox>
             <Link
               to={"/catalog"}
@@ -21,6 +23,7 @@ const Layout = () => {
               Catalog
             </Link>
           </LinkBox>
+
           <LinkBox>
             <Link
               to={"/favorites"}
@@ -31,11 +34,13 @@ const Layout = () => {
           </LinkBox>
         </ul>
       </Navigation>
+
       <main style={{ marginLeft: "130px" }}>
         <Suspense fallback={<div>Loading</div>}>
           <Outlet />
         </Suspense>
       </main>
+      
     </Container>
   );
 };

@@ -34,6 +34,7 @@ export const Header = styled.p`
   text-align: left;
   margin-top: 14px;
   margin-bottom: 8px;
+  display:flex;
 `;
 
 export const SemiTransparent = styled.p`

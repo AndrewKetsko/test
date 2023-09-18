@@ -29,11 +29,39 @@ export const SelectText = styled.select`
   letter-spacing: 0em;
   text-align: left;
   color: #121417;
-  padding: 14px 18px;
+  // padding: 14px 18px;
+  padding-right: 50px;
+  padding-left: 18px;
   border: none;
   border-radius: 14px;
   background-color: rgba(247, 247, 251, 1);
   height: 48px;
+  margin: 0;
+  appearance: none;
+`;
+
+export const SelectImg = styled.img`
+position:absolute;
+right:13px;
+bottom:13px;
+`;
+
+
+export const SelectWrapper = styled.select`
+  // font-family: Manrope;
+  // font-size: 18px;
+  // font-weight: 500;
+  // line-height: 20px;
+  // letter-spacing: 0em;
+  // text-align: left;
+  // color: #121417;
+  // padding: 14px 18px;
+  // border: none;
+  // border-radius: 14px;
+  // background-color: rgba(247, 247, 251, 1);
+  // height: 48px;
+  // margin:0;
+  // width:100px;
 `;
 
 export const OptionText = styled.option`
