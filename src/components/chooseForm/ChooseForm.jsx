@@ -12,8 +12,7 @@ import {
 } from "./ChooseForm.styled";
 import Arrow from "../../pics/arrow.svg";
 
-export const ChooseForm = ({ filter, setFilter }) => {
-  
+export const ChooseForm = ({ setFilter }) => {
   const { data } = useGetCarsQuery();
   const [model, setModel] = useState("");
   const [price, setPrice] = useState("");

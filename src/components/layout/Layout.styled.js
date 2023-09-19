@@ -7,13 +7,12 @@ export const Container = styled.div`
 export const Navigation = styled.nav`
   padding: 10px;
   position: fixed;
-  z-index:100;
-  background-color: rgba(247, 247, 251, 1);
+  z-index: 100;
+  background-color: var(--form-select-bg-color);
   top: 0;
   left: 0;
 `;
 export const Link = styled(NavLink)`
-  font-family: Manrope;
   font-size: 18px;
   font-weight: 500;
   line-height: 20px;
@@ -24,11 +23,11 @@ export const Link = styled(NavLink)`
   margin: 0;
   :hover,
   :focus {
-    background-color: #0b44cd;
+    background-color: var(--button-bg-color-hover);
     color: white;
     border-radius: 10px;
   }
-  `;
+`;
 
 export const LinkBox = styled.li`
   margin-right: 20px;

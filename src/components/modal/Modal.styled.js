@@ -9,7 +9,7 @@ export const Overlay = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: var(--overlay-color);
   z-index: 1200;
 `;
 
@@ -42,7 +42,6 @@ export const Image = styled.div`
 `;
 
 export const Header = styled.p`
-  font-family: Manrope;
   font-size: 18px;
   font-weight: 500;
   line-height: 1.33;
@@ -52,20 +51,16 @@ export const Header = styled.p`
 `;
 
 export const SemiTransparent = styled.p`
-  font-family: Manrope;
   font-size: 12px;
-  font-weight: 400;
   line-height: 1.5;
   letter-spacing: 0em;
   text-align: left;
-  color: rgba(18, 20, 23, 0.5);
+  color: var(--semi-transparent);
   margin-top: 4px;
 `;
 
 export const Text = styled.p`
-  font-family: Manrope;
   font-size: 14px;
-  font-weight: 400;
   line-height: 1.43;
   letter-spacing: 0em;
   text-align: left;
@@ -73,7 +68,6 @@ export const Text = styled.p`
 `;
 
 export const SemiHeader = styled.p`
-  font-family: Manrope;
   font-size: 14px;
   font-weight: 500;
   line-height: 1.43;
@@ -83,21 +77,19 @@ export const SemiHeader = styled.p`
 `;
 
 export const TextBG = styled.p`
-  font-family: Manrope;
   font-size: 12px;
-  font-weight: 400;
   line-height: 1.5;
   letter-spacing: 0em;
   text-align: left;
   display: inline-block;
   padding: 7px 14px;
-  background-color: #f9f9f9;
+  background-color: var(--form-select-bg-color);
   border-radius: 35px;
   margin-right: 8px;
   margin-top: 8px;
 `;
 
 export const SpanBG = styled.span`
-  color: #3470ff;
+  color: var(--button-bg-color);
   font-weight: 600;
 `;

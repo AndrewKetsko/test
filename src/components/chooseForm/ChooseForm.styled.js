@@ -11,13 +11,12 @@ export const Container = styled.form`
 `;
 
 export const LabelText = styled.p`
-  font-family: Manrope;
   font-size: 14px;
   font-weight: 500;
   line-height: 18px;
   letter-spacing: 0em;
   text-align: left;
-  color: rgba(138, 138, 137, 1);
+  color: var(--form-label-text);
   margin-bottom: 8px;
 `;
 
@@ -28,12 +27,12 @@ export const SelectText = styled.select`
   line-height: 20px;
   letter-spacing: 0em;
   text-align: left;
-  color: #121417;
+  color: var(--main-text);
   padding-right: 50px;
   padding-left: 18px;
   border: none;
   border-radius: 14px;
-  background-color: rgba(247, 247, 251, 1);
+  background-color: var(--form-select-bg-color);
   height: 48px;
   margin: 0;
   appearance: none;
@@ -53,7 +52,7 @@ export const OptionText = styled.option`
   line-height: 20px;
   letter-spacing: 0em;
   text-align: left;
-  color: rgba(18, 20, 23, 0.2);
+  color: var(--near-full-transparent);
 `;
 
 export const InputText = styled.input`
@@ -63,9 +62,9 @@ export const InputText = styled.input`
   line-height: 20px;
   letter-spacing: 0em;
   text-align: left;
-  color: #121417;
+  color: var(--main-text);
   border: none;
-  background-color: rgba(247, 247, 251, 1);
+  background-color: var(--form-select-bg-color);
   outline: none;
 
   :first-of-type {
@@ -91,7 +90,7 @@ export const CustomLabel = styled.label`
   line-height: 20px;
   letter-spacing: 0em;
   text-align: left;
-  color: #121417;
+  color: var(--main-text);
 
   :before {
     content: "From:";

@@ -3,9 +3,9 @@ import { useGetCarsQuery } from "../../redux/rentalApi";
 import { Card } from "../card/Card";
 import { Container, Button } from "./Catalog.styled";
 import { useEffect, useState } from "react";
+import { favoriteCars, filteredCars } from "filters/filters";
 
 export const Catalog = ({ filter }) => {
-
   const { data } = useGetCarsQuery();
   const { pathname } = useLocation();
   const [favorite, setFavorite] = useState(
@@ -14,25 +14,18 @@ export const Catalog = ({ filter }) => {
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
+    localStorage.setItem("favorite", JSON.stringify(favorite));
+  }, [favorite]);
+
+  useEffect(() => {
     setCurrentPage(1);
   }, [pathname]);
 
-  const { brand = "", price = "", from = "", to = "" } = filter;
-
-  const filteredData = data?.filter(({ make, rentalPrice, mileage }) => {
-    if (
-      (brand === "" || brand === make) &&
-      Number(price === "" ? Infinity : price) > Number(rentalPrice.slice(1)) &&
-      Number(from === "" ? 0 : from) <= mileage &&
-      Number(to === "" ? Infinity : to) >= mileage
-    )
-      return true;
-    return false;
-  });
+  const filteredData = filteredCars(data, filter);
 
   const favoriteData = pathname.includes("catalog")
     ? filteredData
-    : filteredData?.filter((item) => favorite.includes(item.id));
+    : favoriteCars(filteredData, favorite);
 
   const pages = Math.ceil(favoriteData?.length / 8);
   const renderData = favoriteData?.slice(0, currentPage * 8);
@@ -40,13 +33,8 @@ export const Catalog = ({ filter }) => {
   const handleFavorite = (id) => {
     if (favorite.includes(id)) {
       setFavorite([...favorite].toSpliced(favorite.indexOf(id), 1));
-      localStorage.setItem(
-        "favorite",
-        JSON.stringify([...favorite].toSpliced(favorite.indexOf(id), 1))
-      );
     } else {
       setFavorite([...favorite, id]);
-      localStorage.setItem("favorite", JSON.stringify([...favorite, id]));
     }
   };
 

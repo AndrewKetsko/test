@@ -26,7 +26,6 @@ export const Icon = styled.img`
 `;
 
 export const Header = styled.p`
-  font-family: Manrope;
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
@@ -38,13 +37,11 @@ export const Header = styled.p`
 `;
 
 export const SemiTransparent = styled.p`
-  font-family: Manrope;
   font-size: 12px;
-  font-weight: 400;
   line-height: 1.5;
   letter-spacing: 0em;
   text-align: left;
-  color: rgba(18, 20, 23, 0.5);
+  color: var(--semi-transparent);
   margin-top: 4px;
   margin-bottom: 28px;
 `;

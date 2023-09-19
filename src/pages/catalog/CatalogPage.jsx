@@ -7,7 +7,7 @@ const CatalogPage = () => {
 
   return (
     <>
-      <ChooseForm filter={filter} setFilter={setFilter} />
+      <ChooseForm setFilter={setFilter} />
       <Catalog filter={filter} />
     </>
   );

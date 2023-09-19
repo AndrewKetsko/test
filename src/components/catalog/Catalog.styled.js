@@ -17,7 +17,7 @@ export const Button = styled.button`
   line-height: 1.5;
   letter-spacing: 0em;
   text-align: center;
-  color: #3470ff;
+  color: var(--button-bg-color);
   cursor: pointer;
   margin: 50px auto 10px auto;
   display: inline-block;
@@ -26,6 +26,6 @@ export const Button = styled.button`
 
   :hover,
   :focus {
-    color: #0b44cd;
+    color: var(--button-bg-color-hover);
   }
 `;

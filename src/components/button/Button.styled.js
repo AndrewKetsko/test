@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 export const StyledButton = styled.button`
   ${(props) => (props.longButton ? "width: 100%;" : "")}
   padding: 14px 50px;
-  background-color: #3470ff;
+  background-color: var(--button-bg-color);
   color: white;
   border: none;
   border-radius: 12px;
