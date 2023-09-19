@@ -2,29 +2,15 @@ import styled from "@emotion/styled";
 import { NavLink } from "react-router-dom";
 
 export const Container = styled.div`
-  // display: flex;
   position: relative;
-  // padding-right:10px;
-  //   flex-wrap: wrap;
-  //   gap: 18px;
-  // justify-content: center;
-  //   align-items: flex-end;
-  //   margin-bottom: 50px;
 `;
 export const Navigation = styled.nav`
-  // display: flex;
   padding: 10px;
   position: fixed;
   z-index:100;
   background-color: rgba(247, 247, 251, 1);
-  // height: 100vh;
   top: 0;
   left: 0;
-  //   flex-wrap: wrap;
-  //   gap: 18px;
-  //   justify-content: center;
-  //   align-items: flex-end;
-  //   margin-bottom: 50px;
 `;
 export const Link = styled(NavLink)`
   font-family: Manrope;
@@ -42,9 +28,7 @@ export const Link = styled(NavLink)`
     color: white;
     border-radius: 10px;
   }
-
-  // margin-top:20px;
-`;
+  `;
 
 export const LinkBox = styled.li`
   margin-right: 20px;

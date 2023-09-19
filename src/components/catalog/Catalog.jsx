@@ -6,11 +6,6 @@ import { useEffect, useState } from "react";
 
 export const Catalog = ({ filter }) => {
 
-  console.log(window.location);
-  console.log(window.location.protocol);
-  console.log(window.location.hostname);
-  console.log(window.location.pathname);
-
   const { data } = useGetCarsQuery();
   const { pathname } = useLocation();
   const [favorite, setFavorite] = useState(
