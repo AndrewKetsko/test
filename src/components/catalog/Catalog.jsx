@@ -5,7 +5,12 @@ import { Container, Button } from "./Catalog.styled";
 import { useEffect, useState } from "react";
 
 export const Catalog = ({ filter }) => {
-  
+
+  console.log(window.location);
+  console.log(window.location.protocol);
+  console.log(window.location.hostname);
+  console.log(window.location.pathname);
+
   const { data } = useGetCarsQuery();
   const { pathname } = useLocation();
   const [favorite, setFavorite] = useState(
@@ -18,7 +23,7 @@ export const Catalog = ({ filter }) => {
   }, [pathname]);
 
   const { brand = "", price = "", from = "", to = "" } = filter;
-  
+
   const filteredData = data?.filter(({ make, rentalPrice, mileage }) => {
     if (
       (brand === "" || brand === make) &&
@@ -33,7 +38,7 @@ export const Catalog = ({ filter }) => {
   const favoriteData = pathname.includes("catalog")
     ? filteredData
     : filteredData?.filter((item) => favorite.includes(item.id));
-    
+
   const pages = Math.ceil(favoriteData?.length / 8);
   const renderData = favoriteData?.slice(0, currentPage * 8);
 
@@ -57,7 +62,6 @@ export const Catalog = ({ filter }) => {
   return (
     <>
       <Container>
-
         {renderData?.map((item) => (
           <Card
             key={item.id}
@@ -66,7 +70,6 @@ export const Catalog = ({ filter }) => {
             handleFavorite={handleFavorite}
           />
         ))}
-
       </Container>
 
       {pages > currentPage && (
@@ -76,7 +79,6 @@ export const Catalog = ({ filter }) => {
           </Button>
         </div>
       )}
-      
     </>
   );
 };
