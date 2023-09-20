@@ -1,3 +1,21 @@
+
+
+This is template for CAR RENTAL SERVISE.
+
+It includes 3 pages:
+
+- Home, where will be some averall information about this servise
+
+- Catalog with all available cars for rent
+
+- Favorite page where every can operate with their favorite cars
+
+this app have opportunity to filter cars by brand, price & mileage
+
+it have a pop-up window with сomprehensive information about avery car.
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

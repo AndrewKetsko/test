@@ -43,10 +43,6 @@ export const SelectImg = styled.img`
   position: absolute;
   right: 13px;
   bottom: 13px;
-
-  // :hover {
-  //   transform: rotate(180deg);
-  // }
 `;
 
 export const OptionText = styled.option`
