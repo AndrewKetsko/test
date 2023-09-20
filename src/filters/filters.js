@@ -50,4 +50,4 @@ export const priceRangePer10 = (data) =>
       );
 
 export const carMakesList = (data) =>
-  data.length === 0 ? [] : [...new Set(data?.map((item) => item.make))].sort();
+  data?.length === 0 ? [] : [...new Set(data?.map((item) => item.make))].sort();
