@@ -40,11 +40,13 @@ export const Catalog = ({ filter }) => {
       {renderData?.length === 0 ? (
         <div>
           <FlexDiv>
-            Your favorite list is empty.Select some favorite cars from
+            Your favorite list is empty or current search returns nothing.
+            Select some favorite cars from
           </FlexDiv>
           <FlexDiv>
             <StyledLink to={"/catalog"}>CATALOG</StyledLink>
-          </FlexDiv>
+          </FlexDiv>{" "}
+          <FlexDiv>or change your search parameters.</FlexDiv>
         </div>
       ) : (
         <Container>

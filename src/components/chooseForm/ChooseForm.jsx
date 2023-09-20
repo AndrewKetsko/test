@@ -67,6 +67,7 @@ export const ChooseForm = ({ setFilter }) => {
         setData={setModel}
         label={"Car brand"}
         labelText={"Choose a brand"}
+        name={"cars"}
       />
 
       <Select
@@ -74,6 +75,7 @@ export const ChooseForm = ({ setFilter }) => {
         setData={setPrice}
         label={"Price per hour"}
         labelText={"max price"}
+        name={"price"}
       />
 
       <CustomLabel>
