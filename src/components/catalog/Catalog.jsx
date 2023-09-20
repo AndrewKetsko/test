@@ -15,10 +15,6 @@ export const Catalog = ({ filter }) => {
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
-    localStorage.setItem("favorite", JSON.stringify(favorite));
-  }, [favorite]);
-
-  useEffect(() => {
     setCurrentPage(1);
   }, [pathname]);
 
@@ -32,11 +28,7 @@ export const Catalog = ({ filter }) => {
   const renderData = favoriteData?.slice(0, currentPage * 8);
 
   const handleFavorite = (id) => {
-    if (favorite.includes(id)) {
-      dispatch(delFavorite(id));
-    } else {
-      dispatch(setFavorite(id));
-    }
+    dispatch(favorite.includes(id) ? delFavorite(id) : setFavorite(id));
   };
 
   const handleMore = (e) => {

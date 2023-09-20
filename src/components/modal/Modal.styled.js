@@ -27,9 +27,10 @@ export const CloseIcon = styled.img`
   right: 16px;
   width: 24px;
   height: 24px;
-  :hover, :focus{
+  :hover,
+  :focus {
     transform: scale(1.2);
-    cursor:pointer;
+    cursor: pointer;
   }
 `;
 
@@ -48,15 +49,21 @@ export const Header = styled.p`
   letter-spacing: 0em;
   text-align: left;
   margin-top: 12px;
+  margin-bottom: 4px;
 `;
 
-export const SemiTransparent = styled.p`
+export const SemiTransparent = styled.span`
   font-size: 12px;
   line-height: 1.5;
   letter-spacing: 0em;
   text-align: left;
   color: var(--semi-transparent);
-  margin-top: 4px;
+
+  :not(:last-of-type):after {
+    content: "";
+    border-right: 1px solid;
+    margin: 0 5px;
+  }
 `;
 
 export const Text = styled.p`
@@ -74,6 +81,7 @@ export const SemiHeader = styled.p`
   letter-spacing: 0em;
   text-align: left;
   margin-top: 24px;
+  margin-bottom: 4px;
 `;
 
 export const TextBG = styled.p`

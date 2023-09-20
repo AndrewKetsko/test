@@ -33,15 +33,20 @@ export const Header = styled.p`
   text-align: left;
   margin-top: 14px;
   margin-bottom: 8px;
-  display:flex;
+  display: flex;
 `;
 
-export const SemiTransparent = styled.p`
+export const SemiTransparent = styled.span`
+  display: inline-block;
   font-size: 12px;
   line-height: 1.5;
   letter-spacing: 0em;
   text-align: left;
   color: var(--semi-transparent);
-  margin-top: 4px;
-  margin-bottom: 28px;
+
+  :not(:last-of-type):after {
+    content: "";
+    border-right: 1px solid;
+    margin:0 5px;
+  }
 `;
