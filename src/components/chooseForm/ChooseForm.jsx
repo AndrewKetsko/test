@@ -4,13 +4,9 @@ import { Button } from "../button/Button";
 import {
   Container,
   LabelText,
-  SelectText,
-  OptionText,
   InputText,
-  SelectImg,
   CustomLabel,
 } from "./ChooseForm.styled";
-import Arrow from "../../pics/arrow.svg";
 import {
   carMakesList,
   favoriteCars,
@@ -19,6 +15,7 @@ import {
 } from "filters/filters";
 import { useLocation } from "react-router";
 import { useSelector } from "react-redux";
+import { Select } from "components/select/Select";
 
 export const ChooseForm = ({ setFilter }) => {
   const { data } = useGetCarsQuery();
@@ -65,31 +62,19 @@ export const ChooseForm = ({ setFilter }) => {
 
   return (
     <Container onSubmit={handleSubmit}>
-      <label style={{ position: "relative" }}>
-        <LabelText>Car brand</LabelText>
-        <SelectImg alt={"arrow"} src={Arrow} />
-        <SelectText name="cars" onChange={(e) => setModel(e.target.value)}>
-          <OptionText value={""}>Choose a brand</OptionText>
-          {makes?.map((make) => (
-            <OptionText key={make} value={make}>
-              {make}
-            </OptionText>
-          ))}
-        </SelectText>
-      </label>
+      <Select
+        data={makes}
+        setData={setModel}
+        label={"Car brand"}
+        labelText={"Choose a brand"}
+      />
 
-      <label style={{ position: "relative" }}>
-        <LabelText>Price per hour</LabelText>
-        <SelectImg alt={"arrow"} src={Arrow} />
-        <SelectText name="price" onChange={(e) => setPrice(e.target.value)}>
-          <OptionText value={""}>max price</OptionText>
-          {priceRange?.map((price) => (
-            <OptionText key={price} value={price}>
-              {price}
-            </OptionText>
-          ))}
-        </SelectText>
-      </label>
+      <Select
+        data={priceRange}
+        setData={setPrice}
+        label={"Price per hour"}
+        labelText={"max price"}
+      />
 
       <CustomLabel>
         <LabelText>Car mileage / km</LabelText>
