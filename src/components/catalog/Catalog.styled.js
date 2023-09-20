@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Link } from "react-router-dom";
 
 export const Container = styled.ul`
   width: 100vw;
@@ -27,5 +28,24 @@ export const Button = styled.button`
   :hover,
   :focus {
     color: var(--button-bg-color-hover);
+  }
+`;
+
+export const FlexDiv = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+export const StyledLink = styled(Link)`
+  color: var(--button-bg-color);
+  margin-top: 10px;
+  background-color: var(--form-select-bg-color);
+  padding: 14px 50px;
+  border-radius: 12px;
+
+  :hover,
+  :focus {
+    color: var(--button-bg-color-hover);
+    text-decoration: underline;
   }
 `;

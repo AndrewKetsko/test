@@ -1,7 +1,7 @@
 import { useLocation } from "react-router";
 import { useGetCarsQuery } from "../../redux/rentalApi";
 import { Card } from "../card/Card";
-import { Container, Button } from "./Catalog.styled";
+import { Container, Button, FlexDiv, StyledLink } from "./Catalog.styled";
 import { useEffect, useState } from "react";
 import { favoriteCars, filteredCars } from "filters/filters";
 
@@ -44,23 +44,34 @@ export const Catalog = ({ filter }) => {
 
   return (
     <>
-      <Container>
-        {renderData?.map((item) => (
-          <Card
-            key={item.id}
-            item={item}
-            favorite={favorite}
-            handleFavorite={handleFavorite}
-          />
-        ))}
-      </Container>
+      {renderData?.length === 0 ? (
+        <div>
+          <FlexDiv>
+            Your favorite list is empty.Select some favorite cars from
+          </FlexDiv>
+          <FlexDiv>
+            <StyledLink to={"/catalog"}>CATALOG</StyledLink>
+          </FlexDiv>
+        </div>
+      ) : (
+        <Container>
+          {renderData?.map((item) => (
+            <Card
+              key={item.id}
+              item={item}
+              favorite={favorite}
+              handleFavorite={handleFavorite}
+            />
+          ))}
+        </Container>
+      )}
 
       {pages > currentPage && (
-        <div style={{ display: "flex", justifyContent: "center" }}>
+        <FlexDiv>
           <Button type="button" onClick={handleMore}>
             Load more
           </Button>
-        </div>
+        </FlexDiv>
       )}
     </>
   );
