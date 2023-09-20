@@ -4,13 +4,14 @@ import { Card } from "../card/Card";
 import { Container, Button, FlexDiv, StyledLink } from "./Catalog.styled";
 import { useEffect, useState } from "react";
 import { favoriteCars, filteredCars } from "filters/filters";
+import { useDispatch, useSelector } from "react-redux";
+import { delFavorite, setFavorite } from "redux/slice";
 
 export const Catalog = ({ filter }) => {
+  const dispatch = useDispatch();
   const { data } = useGetCarsQuery();
   const { pathname } = useLocation();
-  const [favorite, setFavorite] = useState(
-    JSON.parse(localStorage.getItem("favorite")) || []
-  );
+  const favorite = useSelector((state) => state.favorite.favorite);
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
@@ -32,9 +33,9 @@ export const Catalog = ({ filter }) => {
 
   const handleFavorite = (id) => {
     if (favorite.includes(id)) {
-      setFavorite([...favorite].toSpliced(favorite.indexOf(id), 1));
+      dispatch(delFavorite(id));
     } else {
-      setFavorite([...favorite, id]);
+      dispatch(setFavorite(id));
     }
   };
 

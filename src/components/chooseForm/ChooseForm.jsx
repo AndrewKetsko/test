@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useGetCarsQuery } from "../../redux/rentalApi";
 import { Button } from "../button/Button";
 import {
@@ -14,33 +14,28 @@ import Arrow from "../../pics/arrow.svg";
 import {
   carMakesList,
   favoriteCars,
-  /**priceRangeCurrentOnly,*/ priceRangePer10,
+  // priceRangeCurrentOnly,
+  priceRangePer10,
 } from "filters/filters";
 import { useLocation } from "react-router";
+import { useSelector } from "react-redux";
 
 export const ChooseForm = ({ setFilter }) => {
   const { data } = useGetCarsQuery();
+  const favorite = useSelector((state) => state.favorite.favorite);
+  const { pathname } = useLocation();
+
   const [model, setModel] = useState("");
   const [price, setPrice] = useState("");
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
-  const [favorite, setFavorite] = useState(
-    JSON.parse(localStorage.getItem("favorite")) || []
-  );
-  const { pathname } = useLocation();
-
-  useEffect(
-    () => setFavorite(JSON.parse(localStorage.getItem("favorite")) || []),
-    [pathname]
-  );
 
   const makes = carMakesList(
     pathname.includes("catalog") ? data : favoriteCars(data, favorite)
   );
 
-  /**  IF ONLY VALID PRICE RANGE NEEDED
-  const priceRange = !data ? [] : priceRangeCurrentOnly(data);
-*/
+  /**  IF ONLY VALID PRICE RANGE NEEDED */
+  // const priceRange = !data ? [] : priceRangeCurrentOnly(data);
 
   const priceRange = !data
     ? []
