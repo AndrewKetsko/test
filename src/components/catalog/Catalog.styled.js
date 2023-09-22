@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 
 export const Container = styled.ul`
   width: 100vw;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
   gap: 50px 29px;
-  justify-content: center;
 `;
 
 export const Button = styled.button`
